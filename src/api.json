@@ -1,0 +1,145 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "description": "peliculas",
+      "title": "Destacados",
+      "playlist": [
+        {
+          "title": "The Games of Thrones",
+          "director": "Daniel Sackheim",
+          "type": "video",
+          "cover": "./images/covers/gameOfThrones.jpg",
+          "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+          "id": 1
+        },
+        {
+          "title": "Vikings",
+          "director": "Michael Hirst",
+          "type": "video",
+          "cover": "./images/covers/Vikings.jpg",
+          "src": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
+          "id": 2
+        },
+        {
+          "title": "Suits",
+          "director": "Doug Liman",
+          "type": "video",
+          "cover": "./images/covers/suits.jpg",
+          "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+          "id": 3
+        },
+        {
+          "title": "Doctor House",
+          "director": "David Shore",
+          "type": "video",
+          "cover": "./images/covers/doctorHouse.jpg",
+          "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+          "id": 4
+        },
+        {
+          "title": "Breaking Bad",
+          "director": "Rian Johnson",
+          "type": "video",
+          "cover": "./images/covers/breaking.jpg",
+          "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+          "id": 5
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "description": "Lo mejor para los niños",
+      "title": "Infantil",
+      "playlist": [
+        {
+          "title": "Minions",
+          "director": "Kyle Balda",
+          "type": "video",
+          "cover": "./images/covers/minions.jpg",
+          "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+          "id": 1
+        },
+        {
+          "title": "Hotel de Transilvania",
+          "director": "Genndy Tartakovsky",
+          "type": "video",
+          "cover": "./images/covers/hotel-transilvania.jpg",
+          "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+          "id": 5
+        },
+        {
+          "title": "El Grinch",
+          "director": "Ron Howard",
+          "type": "video",
+          "cover": "./images/covers/grinch.jpg",
+          "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+          "id": 2
+        },
+        {
+          "title": "Pie Pequeño",
+          "director": "Karey Kirkpatrick",
+          "type": "video",
+          "cover": "./images/covers/pie-pequeno.jpg",
+          "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+          "id": 4
+        },
+        {
+          "title": "Ralph Wifi",
+          "director": "Rich Moore",
+          "type": "video",
+          "cover": "./images/covers/ralph-wifi.jpg",
+          "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "description": "Desconectate del mundo real",
+      "title": "Fantasia",
+      "playlist": [
+        {
+          "title": "Animales Fantasicos",
+          "director": "David Yates",
+          "type": "video",
+          "cover": "./images/covers/animales.jpg",
+          "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+          "id": 1
+        },
+        {
+          "title": "Echame la culpa",
+          "director": "Peter Jackson",
+          "type": "video",
+          "cover": "./images/covers/hobbit.jpg",
+          "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+          "id": 3
+        },
+        {
+          "title": "Animales Fantasicos 2",
+          "director": "David Yates",
+          "type": "video",
+          "cover": "./images/covers/animales.jpeg",
+          "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+          "id": 2
+        },
+        {
+          "title": "Harry Potter Reliquias de la muerte",
+          "director": "David Yates",
+          "type": "video",
+          "cover": "./images/covers/harry.jpg",
+          "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+          "id": 4
+        },
+        {
+          "title": "Me Rehúso",
+          "director": "Peter Jackson",
+          "type": "video",
+          "cover": "./images/covers/anillos.jpg",
+          "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+          "id": 5
+        }
+      ]
+    }
+  ]
+}
