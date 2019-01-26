@@ -119,7 +119,7 @@
           "title": "Animales Fantasicos 2",
           "director": "David Yates",
           "type": "video",
-          "cover": "./images/covers/animales.jpeg",
+          "cover": "./images/covers/animales2.jpeg",
           "src": "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
           "id": 2
         },
