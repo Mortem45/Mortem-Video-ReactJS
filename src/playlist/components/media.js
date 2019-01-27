@@ -3,9 +3,6 @@ import './media.scss'
 import PropTypes from 'prop-types'
 
 class Media extends PureComponent {
-  handleClick (ev) {
-    console.log(ev);
-  }
   render() {
     const style = {
       wrapper: {
@@ -13,7 +10,7 @@ class Media extends PureComponent {
       }
     }
     return (
-      <div className="media card">
+      <div className="media card" onClick={this.props.handleClick}>
         <div className="wrapper" style={ style.wrapper }>
           <div className="data">
             <div className="content">
