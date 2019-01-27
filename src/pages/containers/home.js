@@ -5,6 +5,9 @@ import Related from '../components/related'
 import ModalContainer from '../../widgets/containers/modal'
 import Modal from '../../widgets/components/modal'
 import HandleError from '../../error/containers/handleError'
+import VideoPlayer from '../../player/containers/video-player';
+
+
 export default class Home extends Component {
   state = {
     modalVisible: false,
@@ -24,6 +27,7 @@ export default class Home extends Component {
       <HandleError>
       <HomeLayout>
         <Related/>
+        <VideoPlayer />
         <Categories
         categories={this.props.data.categories}
         handleOpenModal={this.handleOpenModal}
