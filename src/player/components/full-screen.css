@@ -1,0 +1,15 @@
+.FullScreen {
+  align-items: center;
+  padding: 0 10px;
+  display: flex;
+}
+.FullScreen button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  opacity: .5;
+}
+.FullScreen button:hover {
+  opacity: 1;
+}

@@ -8,6 +8,8 @@ import Controls from '../components/video-player-controls'
 import ProgressBar from '../components/progress-bar'
 import Spinner from '../components/spinner'
 import Volume from '../components/volume';
+import FullScreen from '../components/full-screen';
+import { isFullScreen, requestFullScreen, exitFullScreen } from '../../libs/utils'
 export default class VideoPlayer extends Component {
   state = {
     pause: true,
@@ -57,9 +59,21 @@ export default class VideoPlayer extends Component {
   handleVolumeChange = event => {
     this.video.volume = event.target.value
   }
+  handleFullScreenClick = event => {
+    if (!isFullScreen()) {
+      requestFullScreen( this.player )
+    } else {
+      exitFullScreen(this.player)
+    }
+  }
+  setRef= element => {
+    this.player = element
+  }
   render() {
     return (
-      <VideoPlayerLayout>
+      <VideoPlayerLayout
+        setRef={this.setRef}
+      >
         <Title
           title="este es un video"
         />
@@ -80,6 +94,9 @@ export default class VideoPlayer extends Component {
           />
           <Volume
           handleVolumeChange={this.handleVolumeChange}
+          />
+          <FullScreen
+          handleFullScreenClick={this.handleFullScreenClick}
           />
         </Controls>
         <Spinner
