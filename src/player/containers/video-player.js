@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
-import VideoPlayerLayout from '../components/video-player-layout';
+import VideoPlayerLayout from '../components/video-player-layout'
 import Video from '../containers/video'
 import Title from '../components/title'
 import PlayPause from '../../player/components/play-pause'
-import Timer from '../components/timer';
-import Controls from '../components/video-player-controls';
+import Timer from '../components/timer'
+import Controls from '../components/video-player-controls'
+import ProgressBar from '../components/progress-bar'
 export default class VideoPlayer extends Component {
   state = {
     pause: true,
-    duration: 0,
-
+    duration: '',
+    currentTime: '',
+    timeFloat: 0,
+    progress: 0,
+    durationFloat: 0,
   }
   togglePlay = (event) => {
     this.setState({
@@ -24,8 +28,19 @@ export default class VideoPlayer extends Component {
   handleLoadedMetadata = event => {
     this.video = event.target
     this.setState({
-      duration: this.video.duration
+      duration: formattedTime(this.video.duration),
+      durationFloat: this.video.duration
     })
+  }
+  handleTimeUpdate = event => {
+    this.video = event.target
+    this.setState({
+      currentTime: formattedTime(this.video.currentTime),
+      timeFloat: this.video.currentTime
+    })
+  }
+  handleProgressChange = event => {
+    this.video.currentTime = event.target.value
   }
   render() {
     return (
@@ -40,15 +55,27 @@ export default class VideoPlayer extends Component {
           />
           <Timer
             duration={this.state.duration}
+            currentTime={this.state.currentTime}
+          />
+          <ProgressBar
+            duration={this.state.duration}
+            value={this.state.timeFloat}
+            max={this.state.durationFloat}
+            handleProgressChange={this.handleProgressChange}
           />
         </Controls>
         <Video
           autoplay={this.props.autoplay}
           pause={this.state.pause}
           handleLoadedMetadata={this.handleLoadedMetadata}
+          handleTimeUpdate={this.handleTimeUpdate}
           src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
         />
       </VideoPlayerLayout>
     )
   }
 }
+
+const leftPad = n => `0${n}`.substr(-2)
+
+const formattedTime = secs => `${leftPad(~~(secs / 60))} : ${leftPad(~~(secs % 60))}`
