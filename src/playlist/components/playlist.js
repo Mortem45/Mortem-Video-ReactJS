@@ -15,7 +15,7 @@ export default function Playlist(props) {
               key={item.id}
               openModal={props.handleOpenModal}
               />
-
+              
           )
         })
       }
