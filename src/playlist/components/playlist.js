@@ -1,5 +1,5 @@
 import React from 'react'
-import Media from './media'
+import Media from '../containers/media'
 import './playlist.css'
 
 
@@ -11,11 +11,10 @@ export default function Playlist(props) {
         props.playlist.map((item) => {
           return(
             <Media
-              {...item}
-              key={item.id}
+              id={item}
+              key={item}
               openModal={props.handleOpenModal}
               />
-              
           )
         })
       }
