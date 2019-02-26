@@ -6,9 +6,9 @@ import ModalContainer from '../../widgets/containers/modal'
 import Modal from '../../widgets/components/modal'
 import HandleError from '../../error/containers/handleError'
 import VideoPlayer from '../../player/containers/video-player';
+import { connect } from 'react-redux';
 
-
-export default class Home extends Component {
+class Home extends Component {
   state = {
     modalVisible: false,
   }
@@ -29,8 +29,9 @@ export default class Home extends Component {
       <HomeLayout>
         <Related/>
         <Categories
-        categories={this.props.data.categories}
+        categories={this.props.categories}
         handleOpenModal={this.handleOpenModal}
+        search={this.props.search}
         />
         {
           this.state.modalVisible &&
@@ -51,3 +52,12 @@ export default class Home extends Component {
     )
   }
 }
+
+function mapStateToProps(state, props) {
+  return {
+    categories: state.data.categories,
+    search: state.search
+  }
+}
+
+export default connect(mapStateToProps)(Home)
