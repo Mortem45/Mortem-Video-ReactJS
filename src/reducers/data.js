@@ -1,16 +1,22 @@
-const data = (state , action) => {
+import schema from '../schemas';
+import { fromJS } from 'immutable';
+
+const initialState = fromJS({
+    entities: schema.entities,
+    categories: schema.result.categories,
+    search: [],
+})
+export default function data (state = initialState, action) {
   switch (action.type) {
     case 'SEARCH_VIDEO': {
       let results = []
-      if (action.payload.query) {
-        state.data.categories.forEach( category => {
-          results = results.concat(
-            category.playlist.filter(
-              item => item.director.toLowerCase().includes(action.payload.query.toLowerCase())
-            )
+      state.data.categories.forEach( category => {
+        results = results.concat(
+          category.playlist.filter(
+            item => item.director.toLowerCase().includes(action.payload.query.toLowerCase())
           )
-        })
-      }
+        )
+      })
       return {
         ...state,
         search: results
@@ -20,5 +26,3 @@ const data = (state , action) => {
       return state
   }
 }
-
-export default data;
