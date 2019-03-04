@@ -1,17 +1,12 @@
 import React, { Component } from 'react'
 import Search from '../components/search'
 import { connect } from 'react-redux';
+import { searchEntities } from '../../actions';
 
 class SearchContainer extends Component {
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.input.value, 'submit');
-    this.props.dispatch({
-      type: 'SEARCH_VIDEO',
-      payload: {
-        query: this.input.value,
-      }
-    })
+    this.props.searchEntities(this.input.value)
   }
   setInputRef = element => {
     this.input = element;
@@ -26,4 +21,8 @@ class SearchContainer extends Component {
   }
 }
 
-export default connect()(SearchContainer)
+const mapDispatchToProps = {
+  searchEntities
+}
+
+export default connect(null, mapDispatchToProps)(SearchContainer)

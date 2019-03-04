@@ -10,7 +10,9 @@ import Spinner from '../components/spinner'
 import Volume from '../components/volume';
 import FullScreen from '../components/full-screen';
 import { isFullScreen, requestFullScreen, exitFullScreen } from '../../libs/utils'
-export default class VideoPlayer extends Component {
+import { connect } from 'react-redux';
+
+class VideoPlayer extends Component {
   state = {
     pause: true,
     duration: '',
@@ -75,7 +77,7 @@ export default class VideoPlayer extends Component {
         setRef={this.setRef}
       >
         <Title
-          title={this.props.title}
+          title={this.props.media.get('title')}
         />
         <Controls>
           <PlayPause
@@ -109,7 +111,7 @@ export default class VideoPlayer extends Component {
           handleTimeUpdate={this.handleTimeUpdate}
           handleSeeking={this.handleSeeking}
           handleSeeked={this.handleSeeked}
-          src={this.props.src}
+          src={this.props.media.get('src')}
         />
       </VideoPlayerLayout>
     )
@@ -119,3 +121,12 @@ export default class VideoPlayer extends Component {
 const leftPad = n => `0${n}`.substr(-2)
 
 const formattedTime = secs => `${leftPad(~~(secs / 60))} : ${leftPad(~~(secs % 60))}`
+
+function mapStateToProps(state, props) {
+  return {
+    media: state.getIn(['data', 'entities', 'media', props.id])
+  }
+}
+
+
+export default connect(mapStateToProps)(VideoPlayer)

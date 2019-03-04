@@ -7,21 +7,15 @@ import Modal from '../../widgets/components/modal'
 import HandleError from '../../error/containers/handleError'
 import VideoPlayer from '../../player/containers/video-player';
 import { connect } from 'react-redux';
+import { List as list} from 'immutable';
+import { openModal, closeModal } from '../../actions';
 
 class Home extends Component {
-  state = {
-    modalVisible: false,
-  }
-  handleOpenModal = (media) => {
-    this.setState({
-      modalVisible: true,
-      media
-    })
+  handleOpenModal = (id) => {
+    this.props.openModal(id)
   }
   handleCloseModal = (event) =>{
-    this.setState({
-      modalVisible: false,
-    })
+    this.props.closeModal()
   }
   render() {
     return (
@@ -34,15 +28,14 @@ class Home extends Component {
         search={this.props.search}
         />
         {
-          this.state.modalVisible &&
+          this.props.modal.get('visibility') &&
           <ModalContainer>
             <Modal
               handleClick={this.handleCloseModal}
             >
               <VideoPlayer
               autoplay
-              src={this.state.media.src}
-              title={this.state.media.title}
+              id={this.props.modal.get('mediaId')}
               />
             </Modal>
           </ModalContainer>
@@ -57,10 +50,26 @@ function mapStateToProps(state, props) {
   const categories = state.getIn(['data', 'categories']).map((categoryId) => {
     return state.getIn(['data', 'entities', 'categories', categoryId])
   })
+  let searchResults = list()
+  const search = state.getIn(['data', 'search'])
+  if(search) {
+		const mediaList = state.get('data').get('entities').get('media');
+		searchResults = mediaList.filter((item) => {
+			if (item.get('director').toLowerCase().includes(search.toLowerCase()) || item.get('title').toLowerCase().includes(search.toLowerCase())){
+				return true
+			}
+		}).toList();
+  }
   return {
     categories: categories,
-    search: state.getIn(['data', 'search'])
+    search: searchResults,
+    modal: state.get('modal')
   }
 }
 
-export default connect(mapStateToProps)(Home)
+const mapDispatchToProps = {
+  openModal,
+  closeModal
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

@@ -1,5 +1,6 @@
 .Category {
   margin-bottom: 1em;
+  display: inline-grid;
 }
 
 .Category-title {
