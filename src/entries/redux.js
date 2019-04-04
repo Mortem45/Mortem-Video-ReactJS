@@ -28,6 +28,7 @@ const initialState = [
     "title": "sin ti"
   }
 ]
+
 const reducer = function (state, action) {
     switch (action.type) {
       case 'ADD_SONG':

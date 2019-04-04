@@ -8,7 +8,7 @@ class Media extends PureComponent {
   }
   render() {
     const style = {
-      wrapper: {
+    wrapper: {
         background: 'url('+this.props.cover+') center / cover no-repeat'
       }
     }
